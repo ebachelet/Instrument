@@ -78,6 +78,7 @@ class LCOSinistro(object):
 		self.ron = 12
 		self.ccd_temp = -100 # Celsius
 		self.define_header_conventions()
+		self.filter_convention = {'ip' : 'sdss-i', 'gp' : 'sdss-g', 'rp' : 'sdds-r'}
 
 	def define_header_conventions(self):
 		
@@ -86,9 +87,7 @@ class LCOSinistro(object):
 		self.header_dictionnary['time_start'] = 'UT_START'
 		self.header_dictionnary['obs_type'] = 'OBSTYPE'
 		self.header_dictionnary['exp_time'] = 'EXPTIME'
-		self.header_dictionnary['filter1'] = 'FILTER1'
-		self.header_dictionnary['filter2'] = 'FILTER2'
-		self.header_dictionnary['filter3'] = 'FILTER3'
+		self.header_dictionnary['filter'] = 'FILTER'
 		self.header_dictionnary['ra'] = 'RA'
 		self.header_dictionnary['dec'] = 'DEC'
 		self.header_dictionnary['reference_epoch'] = 'CAT-EPOC'
@@ -100,7 +99,14 @@ class LCOSinistro(object):
 		self.header_dictionnary['instrument'] = 'INSTRUME'
 		self.header_dictionnary['binning'] = 'CCDSUM'
 		self.header_dictionnary['ccd_temp'] = 'CCDATEMP'
-
+		self.header_dictionnary['object'] = 'OBJECT'
+		self.header_dictionnary['moon_distance'] = 'MOONDIST'
+		self.header_dictionnary['seeing'] = 'AGFWHM'
+		self.header_dictionnary['ellipticity'] = 'L1ELLIP'
+		self.header_dictionnary['sky_temperature'] = 'WMSCLOUD'
+		self.header_dictionnary['sky_measured_mag'] = 'WMSSKYBR'
+		self.header_dictionnary['sky_expected_mag'] = 'SKYMAG'
+		
 	def update_values_from_header(self, image):
 		
 		from astropy.io import fits	
