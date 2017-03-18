@@ -1,8 +1,17 @@
+### Define Instruments for the LCO project
+
+
 import sys
 thismodule = sys.modules[__name__]
 
-def define_instrument(name):
 
+def define_instrument(name):
+""" Construct the correct instrument class according to the input name.
+:param str name: a string which should match a class name.
+
+:return: instrument
+:rtype: instrument object like
+"""
 
     try:
 
@@ -18,53 +27,11 @@ def define_instrument(name):
 class InstrumentException(Exception):
      
 	pass
-
-
-
-class Telescope(object):
-
-	
-	 def __init__(self):
-
-
-		pass
-
-
-class Instrument(object):
-
-
-	def __init__(self):
-
-		self.name = None
-		self.type = 'Imager'
-		self.camera_model = None
-		self.ron = None
-		self.gain = None
-		self.pix_scale = None
-		self.x_binning = 1
-		self.y_binning = 1
-		self.fov = None
-		self.ADU_low = None
-		self.ADU_high = None
-		self.bpm = None	
-		self.ro_speed = None			
-		self.header_dictionnary = {}
-		self.telescope_site = None
-		self.dark_current = None
-
-	def define_header_conventions():
-		pass
-
-	def update_values_from_header():
-		pass
-
-	def define_DANDIA_parameters() :
-		pass
-
 					
 
 class LCOSinistro(object):
-
+""" Master class that defines common quantities for the LCO Sinistro cameras.      
+"""
 	def __init__(self):
 
 		self.name = None
